@@ -1,0 +1,41 @@
+name: Publish Site
+
+on:
+  push:
+    branches: ["main"]
+  workflow_dispatch:
+
+# Token permissions to allow publishing
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Don't let multiple jobs fight over the deployment stick
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install Zola
+        uses: taiki-e/install-action@v2
+        with:
+          tool: zola@0.18.0
+
+      - name: Build Site
+        run: zola build
+
+      - name: Upload Site
+        uses: actions/upload-pages-artifact@v2
+        with:
+          path: ./public
+
+      - name: Publish Site
+        uses: actions/deploy-pages@v3
