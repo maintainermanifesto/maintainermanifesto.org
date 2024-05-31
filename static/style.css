@@ -1,4 +1,6 @@
 html, body {
+	color: var(--foreground);
+	background-color: var(--background);
 	margin: 0;
 	padding: 0;
 	height: fit-content;
@@ -23,7 +25,7 @@ nav {
 	align-items: center;
 	justify-content: center;
 	top: 0px;
-	background: linear-gradient(rgb(255 255 255 / 100%) 75%, rgb(255 255 255 / 0%));
+	background: var(--nav-fade-under);
 }
 
 nav ul {
@@ -44,12 +46,12 @@ nav li {
 
 nav a {
 	text-decoration: none;
-	color: black;
+	color: var(--foreground);
 	font-size: 120%;
 }
 
 nav a:hover {
-	color: #901010;
+	color: var(--nav-link-hover);
 }
 
 main {
@@ -65,8 +67,8 @@ main p {
 }
 
 blockquote {
-	background-color: #d0d0d0;
-	border-color: #a0a0a0;
+	background-color: var(--blockquote-background);
+	border-color: var(--blockquote-border);
 	border-style: solid;
 	border-width: 0px;
 	border-left-width: 4px;
@@ -85,8 +87,8 @@ footer {
 	position: fixed;
 	bottom: 0px;
 	display: flex;
-	background-color: black;
-	color: white;
+	background-color: var(--footer-background);
+	color: var(--footer-foreground);
 	align-items: center;
 
 }
@@ -108,11 +110,11 @@ footer li {
 
 footer a {
 	text-decoration: none;
-	color: white;
+	color: var(--footer-foreground);
 }
 
 footer a:hover {
-	color: #c0c0c0;
+	color: var(--footer-link-hover);
 }
 
 @media (max-width: 750px) {
@@ -155,5 +157,28 @@ footer a:hover {
 	}
 	.github-corner .octo-arm {
 		animation:octocat-wave 560ms ease-in-out
+	}
+}
+
+:root {
+	--background: white;
+	--foreground: black;
+	--nav-link-hover: #901010;
+	--nav-fade-under: linear-gradient(rgb(255 255 255 / 100%) 75%, rgb(255 255 255 / 0%));
+	--blockquote-background: #d0d0d0;
+	--blockquote-border: #a0a0a0;
+	--footer-background: black;
+	--footer-foreground: white;
+	--footer-link-hover: #c0c0c0;
+}
+
+@media screen and (prefers-color-scheme: dark) {
+	:root {
+		--background: #121212;
+		--foreground: #d0d0d0;
+		--nav-link-hover: #b08080;
+		--nav-fade-under: linear-gradient(rgb(18 18 18 / 100%) 75%, rgb(18 18 18 / 0%));
+		--blockquote-background: #d0d0d0;
+		--blockquote-border: #a0a0a0;
 	}
 }
