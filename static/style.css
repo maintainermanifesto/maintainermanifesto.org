@@ -62,6 +62,10 @@ main {
 	margin-bottom: 5rem;
 }
 
+main a {
+	color: var(--foreground);
+}
+
 main p {
 	line-height: 140%;
 }
@@ -178,7 +182,7 @@ footer a:hover {
 		--foreground: #d0d0d0;
 		--nav-link-hover: #b08080;
 		--nav-fade-under: linear-gradient(rgb(18 18 18 / 100%) 75%, rgb(18 18 18 / 0%));
-		--blockquote-background: #d0d0d0;
-		--blockquote-border: #a0a0a0;
+		--blockquote-background: #252525;
+		--blockquote-border: #505050;
 	}
 }
